@@ -11,6 +11,7 @@ export default async (req, res, next) => {
       const verify = await bcrypt.compare(req.body.password, user.password);
       if (verify) {
         req.token = jwt.sign({ id: user._id }, process.env.JWT);
+        console.log(req.token);
         next();
       } else {
         return res.status(404).send({ message: "wrong user data" });

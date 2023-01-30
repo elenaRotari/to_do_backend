@@ -11,6 +11,6 @@ export default async (req, res, next) => {
       res.status(404).send({ message: "please log in " });
     }
   } catch (error) {
-    res.status(404).send({ message: error.message });
+    res.status(404).send({ aprooved: false, message: error.message });
   }
 };

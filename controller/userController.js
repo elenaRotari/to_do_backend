@@ -9,7 +9,7 @@ export const getAll = async (req, res) => {
 };
 export const getOne = async (req, res) => {
   try {
-    res.status(201).send(await User.findById(req.params.id));
+    res.status(201).send(await User.findById(req.token.id));
   } catch (error) {
     res.status(404).send({ message: error });
   }

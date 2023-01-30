@@ -15,7 +15,12 @@ const app = express();
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    origin: "http://localhost:5173",
+  })
+);
 // set routes
 app.use("/users", userRouter);
 app.use("/tasks", tasksRouter);
