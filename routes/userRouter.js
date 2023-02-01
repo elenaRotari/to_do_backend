@@ -3,6 +3,7 @@ import {
   getAll,
   getOne,
   loginOne,
+  logOutOne,
   postOne,
 } from "../controller/userController.js";
 import auth from "../middleware/auth.js";
@@ -16,5 +17,6 @@ userRouter.route("/").get(getAll);
 userRouter.route("/one").get(auth, getOne);
 userRouter.route("/register").post(hashPWD, postOne);
 userRouter.route("/login").post(checkPWD, loginOne);
+userRouter.route("/logout").post(auth, logOutOne);
 
 export default userRouter;

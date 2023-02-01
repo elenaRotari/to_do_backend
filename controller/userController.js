@@ -43,7 +43,15 @@ export const loginOne = async (req, res) => {
         maxAge: 24 * 60 * 60 * 1000,
         httpOnly: true,
       })
-      .send({ message: "You are logged" });
+      .send({ aprooved: true, message: "You are logged" });
+  } catch (error) {
+    res.status(404).send({ aprooved: false, message: "login fail" });
+  }
+};
+export const logOutOne = async (req, res) => {
+  try {
+    res.clearCookie("loginCookie");
+    res.status(201).send({ message: "You are logged out" });
   } catch (error) {
     res.status(404).send({ message: "login fail" });
   }
