@@ -18,7 +18,7 @@ app.use(cookieParser());
 app.use(
   cors({
     credentials: true,
-    origin: "https://to-do-front-topaz.vercel.app/",
+    origin: "https://to-do-front-elenarotari.vercel.app",
   })
 );
 // set routes
