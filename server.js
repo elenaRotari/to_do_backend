@@ -15,12 +15,12 @@ const app = express();
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cookieParser());
-app.use(
-  cors({
-    credentials: true,
-    origin: "https://to-do-front-elenarotari.vercel.app",
-  })
-);
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: "https://to-do-front-elenarotari.vercel.app",
+//   })
+// );
 // set routes
 app.use("/users", userRouter);
 app.use("/tasks", tasksRouter);

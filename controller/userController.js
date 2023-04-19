@@ -37,6 +37,7 @@ export const deleteOne = async (req, res) => {
 };
 export const loginOne = async (req, res) => {
   try {
+    console.log(req.token);
     res
       .status(201)
       .cookie("loginCookie", req.token, {
