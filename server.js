@@ -5,8 +5,12 @@ import morgan from "morgan";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import "./lib/connection.js";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 import userRouter from "./routes/userRouter.js";
 import tasksRouter from "./routes/tasksRouter.js";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const PORT = process.env.PORT || 4000;
 
@@ -22,6 +26,9 @@ app.use(cookieParser());
 //   })
 // );
 // set routes
+app.use(express.static("uploads"));
+app.use("/", express.static("./dist"));
+app.get("/*", (req, res) => res.sendFile(__dirname + "/dist/index.html"));
 app.use("/users", userRouter);
 app.use("/tasks", tasksRouter);
 
