@@ -16,7 +16,7 @@ export const getOne = async (req, res) => {
 };
 export const postOne = async (req, res) => {
   try {
-    res.status(201).send(await User.create(req.body));
+    res.status(201).send({ aprooved: true, data: await User.create(req.body) });
   } catch (error) {
     res.status(404).send({ message: error });
   }

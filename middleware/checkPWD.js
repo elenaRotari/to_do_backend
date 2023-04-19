@@ -15,7 +15,7 @@ export default async (req, res, next) => {
         req.token = jwt.sign({ id: user._id }, process.env.JWT, {
           expiresIn: "2h",
         });
-        console.log(req.token);
+      
         next();
       } else {
         return res

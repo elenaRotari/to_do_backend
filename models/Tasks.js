@@ -19,4 +19,13 @@ const tasksSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Tasks", tasksSchema);
+const Tasks = mongoose.model("Tasks", tasksSchema);
+export default Tasks;
+
+// const changeStream = Tasks.watch();
+// changeStream.on("change", async (res, req, next) => {
+//   if (next.operationType === "delete") {
+//     console.log("A document has been deleted: ", next.documentKey._id);
+//     res.status(201).send(await Tasks.findByIdAndDelete(req.params.id));
+//   }
+// });
