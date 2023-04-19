@@ -11,11 +11,12 @@ export default async (req, res, next) => {
     } else {
       const user = await User.findOne({ email: req.body.email });
       const verify = await bcrypt.compare(req.body.password, user.password);
+      console.log(verify);
       if (verify) {
         req.token = jwt.sign({ id: user._id }, process.env.JWT, {
           expiresIn: "2h",
         });
-      
+
         next();
       } else {
         return res
