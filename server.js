@@ -17,7 +17,12 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost/",
+    credentials: true,
+  })
+);
 // set routes
 
 app.use("/api/users", userRouter);
