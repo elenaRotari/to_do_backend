@@ -19,7 +19,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://to-do-front-psi.vercel.app",
     credentials: true,
   })
 );
