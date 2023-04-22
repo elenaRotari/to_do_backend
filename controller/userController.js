@@ -38,11 +38,14 @@ export const deleteOne = async (req, res) => {
 export const loginOne = async (req, res) => {
   try {
     console.log(req.token);
+
     res
       .status(201)
       .cookie("loginCookie", req.token, {
         maxAge: 24 * 60 * 60 * 1000,
         httpOnly: true,
+        sameSite: "none",
+        secure: true,
       })
       .send({ aprooved: true, message: "You are logged" });
   } catch (error) {
